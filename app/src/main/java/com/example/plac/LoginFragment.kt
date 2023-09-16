@@ -18,8 +18,6 @@ class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var firebaseAuth: FirebaseAuth
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,7 +25,6 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
-
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -53,4 +50,13 @@ class LoginFragment : Fragment() {
 
         return view
     }
+
+//    override fun onStart() {
+//        super.onStart()
+//
+//        if (firebaseAuth.currentUser != null) {
+//            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+//        }
+//    }
+
 }

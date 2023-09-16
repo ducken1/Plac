@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "76730170417",
-    "project_id": "plac-398321",
-    "storage_bucket": "plac-398321.appspot.com"
+    "project_number": "1023973888619",
+    "firebase_url": "https://plac-4a92a-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "plac-4a92a",
+    "storage_bucket": "plac-4a92a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:76730170417:android:626c420509248d89136910",
+        "mobilesdk_app_id": "1:1023973888619:android:193fa83c416671094d972e",
         "android_client_info": {
           "package_name": "com.example.plac"
         }
@@ -15,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDQ8dCaO7zW1qjQ_LpdCgPcKRTyK9lATeE"
+          "current_key": "AIzaSyCijUpG1gyGtOar7bttxdpKAwHBHdqnUZM"
         }
       ],
       "services": {
