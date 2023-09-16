@@ -71,15 +71,15 @@
 
 
 
-<!--    <ImageView-->
-<!--        android:id="@+id/btMap"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="48dp"-->
-<!--        android:layout_alignParentEnd="true"-->
-<!--        android:layout_alignParentBottom="true"-->
-<!--        android:layout_marginEnd="8dp"-->
-<!--        android:layout_marginBottom="615dp"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        android:clickable="true"-->
-<!--        android:src="@drawable/map" />-->
+    <ImageView
+        android:id="@+id/btMap"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="615dp"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:src="@drawable/map" />
 </androidx.drawerlayout.widget.DrawerLayout>
