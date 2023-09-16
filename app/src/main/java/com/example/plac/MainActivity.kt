@@ -46,10 +46,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController)
 
 
-        binding.btMap.setOnClickListener {
-            val intent = Intent(this, MapsActivity::class.java)
-            startActivity(intent)
-        }
+//        binding.btMap.setOnClickListener {
+//            val intent = Intent(this, MapsActivity::class.java)
+//            startActivity(intent)
+//        }
 
 
 
