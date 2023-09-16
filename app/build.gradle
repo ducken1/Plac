@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    namespace 'com.example.plac'
+    compileSdk 34
+
+    signingConfigs {
+        debug {
+            storeFile file('C:/Users/duckeN/.android/debug.keystore')
+            storePassword 'android'
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+        }
+        // Add signing configurations for release builds here if needed
+    }
+    defaultConfig {
+        applicationId "com.example.plac"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    task generateSigningReport(type: Exec) {
+        description = 'Generate signing report'
+        group = 'Signing'
+
+        commandLine 'keytool', '-list', '-v', '-keystore', signingConfigs.debug.storeFile, '-storepass', signingConfigs.debug.storePassword, '-keypass', signingConfigs.debug.keyPassword
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.12.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    //firebase
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //fragment
+    implementation("androidx.fragment:fragment-ktx:1.6.1")
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'androidx.navigation:navigation-fragment:2.7.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.7.2'
+    //circleview
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+}

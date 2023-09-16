@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "76730170417",
+    "project_id": "plac-398321",
+    "storage_bucket": "plac-398321.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76730170417:android:626c420509248d89136910",
+        "android_client_info": {
+          "package_name": "com.example.plac"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ8dCaO7zW1qjQ_LpdCgPcKRTyK9lATeE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
