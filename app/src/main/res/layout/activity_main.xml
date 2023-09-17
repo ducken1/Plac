@@ -6,9 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:fitsSystemWindows="true"
-    tools:openDrawer="start"
-    >
+    android:fitsSystemWindows="true">
 <!--    android:layoutDirection="ltr"-->
 
 
@@ -24,7 +22,6 @@
 
 <!--            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />-->
 
-
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/nav_host_fragment"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -34,6 +31,7 @@
             app:navGraph="@navigation/main_graph" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 
     <com.google.android.material.navigation.NavigationView
@@ -49,7 +47,7 @@
         app:itemBackground="@drawable/drawer_item_selector"
         app:theme="@style/Theme.NavigationDrawer"
         app:menu="@menu/main_menu"
-        />
+        android:backgroundTint="#272727" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view2"

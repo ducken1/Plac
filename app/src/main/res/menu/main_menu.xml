@@ -11,44 +11,25 @@
             android:icon="@drawable/ic_inbox"
             android:title="Inbox" />
     </group>
-    <item android:title="Profile">
-        <menu >
-            <group  android:checkableBehavior="single">
+
+            <group  android:checkableBehavior="single"
+                android:id="@+id/profile">
                 <item
                     android:id="@+id/loginFragment"
-                    android:icon="@drawable/ic_adb"
+                    android:icon="@drawable/baseline_login_24"
                     android:title="Login" />
                 <item
                     android:id="@+id/registerFragment"
-                    android:icon="@drawable/ic_adb"
+                    android:icon="@drawable/baseline_register_24"
                     android:title="Register" />
+                <item
+                    android:id="@+id/oglasFragment"
+                    android:icon="@drawable/baseline_add_box_24"
+                    android:title="Dodaj Oglas"
+                    />
 
             </group>
-        </menu>
-    </item>
-    <item android:title="Account">
-        <menu>
-            <group  android:checkableBehavior="single">
-                <item
-                    android:id="@+id/seventhFragment"
-                    android:icon="@drawable/ic_bedtime"
-                    android:title="Manage Account" />
 
-                <item
-                    android:id="@+id/eithFargment"
-                    android:icon="@drawable/ic_cloud"
-                    android:title="Followers" />
-                <item
-                    android:id="@+id/ninethFragment"
-                    android:icon="@drawable/ic_adb"
-                    android:title="Followings" />
-                <item
-                    android:id="@+id/tenthFragment"
-                    android:icon="@drawable/ic_inbox"
-                    android:title="Logout" />
-            </group>
-        </menu>
-    </item>
     <group android:id="@+id/about">
         <item
             android:checkable="true"

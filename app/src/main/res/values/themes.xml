@@ -4,7 +4,7 @@
 
     <style name="Theme.CustomNavigationDrawer" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/orange_600</item>
+        <item name="colorPrimary">#4FD606</item>
         <item name="colorPrimaryVariant">@color/orange_600</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -20,11 +20,14 @@
         <item name="navHeaderDescriptionColor">@color/gray_800</item>
         <item name="drawerBackground">@color/white</item>
 
+        <item name="android:titleTextColor">@color/white</item>
+
     </style>
+
 
     <style name="Theme.NavigationDrawer" parent="ThemeOverlay.MaterialComponents.Light">
         <item name="android:scrollbarThumbVertical">@android:color/transparent</item>
-        <item name="colorControlHighlight">@color/yellow_500</item>
+        <item name="colorControlHighlight">#2C9F31</item>
         <item name="colorPrimary">@color/orange_500</item>
     </style>
 </resources>
