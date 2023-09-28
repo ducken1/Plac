@@ -1,44 +1,27 @@
 package com.example.plac
 
-import android.content.Intent
+
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
-import android.view.ViewConfiguration
 import android.widget.Button
-import android.widget.FrameLayout
 import android.widget.TextView
 import android.widget.Toast
-import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupWithNavController
 import com.example.plac.databinding.ActivityMainBinding
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import java.lang.Math.abs
-import java.lang.Math.max
 
 class MainActivity : AppCompatActivity(), LoginFragment.OnLoginSuccessListener {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var firebaseDatabase: FirebaseDatabase
-    private lateinit var  databaseReference: DatabaseReference
 
-    lateinit var appBarConfiguration: AppBarConfiguration
     lateinit var navController: NavController
     private lateinit var drawerLayout: DrawerLayout
     lateinit var navHostFragment: NavHostFragment
@@ -55,10 +38,6 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginSuccessListener {
         navController = navHostFragment.navController
 
         drawerLayout = findViewById(R.id.drawer_layout)
-
-//        appBarConfiguration = AppBarConfiguration(setOf(R.id.loginFragment, R.id.registerFragment, R.id.homeFragment, R.id.oglasFragment), drawerLayout)
-//
-//        findViewById<NavigationView>(R.id.nav_view).setupWithNavController(navController) //appbarconfig.. ampak pol se mapa zjebe
 
         binding.navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
@@ -77,43 +56,24 @@ class MainActivity : AppCompatActivity(), LoginFragment.OnLoginSuccessListener {
 
             }
 
-            // Close the drawer if you have a drawerLayout
-            drawerLayout?.closeDrawer(GravityCompat.START)
+            drawerLayout.closeDrawer(GravityCompat.START)
 
-            // Return true to indicate that the item click has been handled
             true
         }
-
-
-//        binding.navView.setNavigationItemSelectedListener { menuItem ->
-//            when (menuItem.itemId) {
-//                R.id.homeFragment -> {
-//                    val navOptions = NavOptions.Builder()
-//                        .setPopUpTo(R.id.homeFragment, false) // Clear the back stack to ensure HomeFragment is recreated
-//                        .build()
-//                    navController.navigate(R.id.action_homeFragment_self, null, navOptions)
-//                }
-//            }
-//            drawerLayout.closeDrawer(GravityCompat.START)
-//            true
-//        }
-
 
         val user = FirebaseAuth.getInstance().currentUser
         val userId = user?.uid
 
-        //Log.d("MyTag", "User ID: $userId")
-
         if (userId != null) {
 
             val databaseReference = FirebaseDatabase.getInstance().reference
-            val userReference = databaseReference.child("Users").child(userId) // Replace 'users' with your database structure
+            val userReference = databaseReference.child("Users").child(userId)
 
             userReference.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     if (dataSnapshot.exists()) {
                         val userName = dataSnapshot.child("name").getValue(String::class.java)
-                        Log.d("Firebase", "User Name from Database: $userName")
+                        //Log.d("Firebase", "User Name from Database: $userName")
                         updateUserNameInNavHeader(userName)
                     }
                 }

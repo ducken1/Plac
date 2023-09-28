@@ -9,7 +9,7 @@
         android:id="@+id/loginFragment"
         android:name="com.example.plac.LoginFragment"
         android:label="Login"
-        tools:layout="@layout/fragment_login" >
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/registerFragment"
         android:name="com.example.plac.RegisterFragment"
         android:label="Register"
-        tools:layout="@layout/fragment_register" >
+        tools:layout="@layout/fragment_register">
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
@@ -27,22 +27,50 @@
         android:id="@+id/homeFragment"
         android:name="com.example.plac.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_updateOglasFragment"
+            app:destination="@id/updateOglasFragment" />
     </fragment>
     <fragment
         android:id="@+id/oglasFragment"
         android:name="com.example.plac.OglasFragment"
         android:label="fragment_oglas"
-        tools:layout="@layout/fragment_oglas" >
+        tools:layout="@layout/fragment_oglas">
+        <action
+            android:id="@+id/action_oglasFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/mapsFragment"
         android:name="com.example.plac.MapsFragment"
         android:label="fragment_maps"
-        tools:layout="@layout/fragment_maps" >
-<!--        <action-->
-<!--            android:id="@+id/action_mapsFragment_to_homeFragment"-->
-<!--            app:destination="@id/homeFragment" />-->
+        tools:layout="@layout/fragment_maps">
+        <!--        <action-->
+        <!--            android:id="@+id/action_mapsFragment_to_homeFragment"-->
+        <!--            app:destination="@id/homeFragment" />-->
 
+    </fragment>
+    <fragment
+        android:id="@+id/updateOglasFragment"
+        android:name="com.example.plac.UpdateOglasFragment"
+        android:label="fragment_update_oglas"
+        tools:layout="@layout/fragment_update_oglas">
+        <action
+            android:id="@+id/action_updateOglasFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="oglasId"
+            app:argType="string" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="imageUrl"
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 </navigation>

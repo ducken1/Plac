@@ -1,49 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment"
-    android:background="#404040">
+    android:background="#404040"
+    tools:context=".HomeFragment">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvOglasi"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchViewLayout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <Button
         android:id="@+id/btMap"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="363dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/map"/>
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="7dp"
+        android:background="@drawable/map"
+        app:layout_constraintStart_toEndOf="@id/searchViewLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <Button-->
-<!--        android:id="@+id/btMap3"-->
-<!--        android:layout_width="40dp"-->
-<!--        android:layout_height="40dp"-->
-<!--        android:layout_marginLeft="363dp"-->
-<!--        android:layout_marginTop="60dp"-->
-<!--        android:background="@drawable/map"/>-->
-    <Button
-        android:id="@+id/btnNeke"
-        android:layout_width="128dp"
-        android:layout_height="84dp"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="100dp"
-        android:text="BLABLA"/>
+
+
 
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+    </FrameLayout>
 
-    <SearchView
-        android:layout_width="345dp"
+    <LinearLayout
+        android:id="@+id/searchViewLayout"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="60dp"
-        android:background="@drawable/round_search_view_bg" />
+        android:layout_marginEnd="42dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="356dp"
+            android:layout_height="30dp"
+            android:background="@drawable/round_search_view_bg" />
+
+    </LinearLayout>
 
 
-
-
-
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

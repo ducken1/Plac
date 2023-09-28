@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import com.example.plac.databinding.FragmentLoginBinding
 import com.example.plac.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -26,7 +25,7 @@ class RegisterFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         val view = binding.root
 
@@ -41,15 +40,22 @@ class RegisterFragment : Fragment() {
             val password = binding.passwordRegister.text.toString()
             val confirmPassword = binding.confirmpasswordRegister.text.toString()
 
-            if (name.isNotEmpty() && mail.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
-                if (password == confirmPassword) {
-                    register(name, mail, password)
-                } else {
-                    Toast.makeText(requireContext(), "Passwords do not match", Toast.LENGTH_SHORT).show()
-                }
-            } else {
+            val emailPattern = "[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}".toRegex()
+
+            if (name.isEmpty() || mail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(requireContext(), "Empty fields", Toast.LENGTH_SHORT).show()
+            } else if (!mail.matches(emailPattern)) {
+                Toast.makeText(requireContext(), "Invalid email address format", Toast.LENGTH_SHORT).show()
+            } else if (password.length < 6) {
+                Toast.makeText(requireContext(), "Password must be longer than 6 characters", Toast.LENGTH_SHORT).show()
+            } else if (password != confirmPassword) {
+                Toast.makeText(requireContext(), "Passwords do not match", Toast.LENGTH_SHORT).show()
+            } else {
+                // All checks passed, proceed to registration
+                register(name, mail, password)
             }
+
+
         }
 
         return view
